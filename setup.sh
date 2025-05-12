@@ -9,11 +9,11 @@ else
     echo "ollama : end of install "
 fi
 
-cd ~/work/ollama-langchain-mistral-notebook/
-python3 -m venv .venv
+cd ~/work/ollama-langchain-notebook/ 
+uv venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
-#python3 -m spacy download fr_core_news_lg
-python3 -m ipykernel install --user --name=venv --display-name "Python (.venv)"
+uv pip install notebook ipykernel
+uv pip install -r requirements.txt
+python -m ipykernel install --user --name=my-uv-env --display-name "Python (uv)"
 
 ./load_run_ollama.sh &
